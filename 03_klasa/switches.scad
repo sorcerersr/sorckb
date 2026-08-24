@@ -51,7 +51,7 @@ module thumb_cluster(add_spacing){
         rotate([0,0,-20])
         switch_cutout_column(add_spacing=add_spacing);
         
-        translate([2*switch_distance,-switch_size,0])
+        translate([2*switch_distance-2,-switch_size,0])
         rotate([0,0,-35])
         switch_cutout_column(add_spacing=add_spacing);
     }
@@ -84,7 +84,7 @@ module main_switch_area(add_spacing=false, add_controller_spacing=false){
         }
             
     }
-    translate([3*switch_distance-switch_distance/2,-52,0])    
+    translate([3*switch_distance+switch_distance/4,-52,0])    
     thumb_cluster(add_spacing);
 
 }
@@ -114,7 +114,7 @@ module switch_plate(){
     // actual size is 18x22 but add a bit more space
     translate([43.7,-40,0])
     rotate([0,0,-35])
-    square([20,27]);
+    square([30.035,27]);
     
     // use a 90 degree angle in the shape
     translate([36.135,-20.64,0])
@@ -127,8 +127,8 @@ module switch_plate(){
     
     
     // other gap
-    translate([-40,-36.5,0])
-    rotate([0,0,-20])
+    translate([-35,-32.037,0])
+    rotate([0,0,-21.1])
     square([50,35]);
     
     

@@ -4,12 +4,13 @@ use <controller.scad>;
 
 $fn=100;
 
-height=5.75+1.5+1.5-4;
+height=6.75+1.5+1.5-4;
 
 module casetop(){
     
         difference(){
             minkowski(){
+                translate([0,0,-1])
                 linear_extrude(height)        
                 switch_plate();
                 sphere(d=4);
@@ -34,17 +35,21 @@ module casetop(){
         translate([43.25,-7,1])
         cube([2,5,4]);
         
-        translate([52.25,-10.3,1])
+        translate([52.25,-11.5,1])
         cube([6,4,4]);
         
         // and usb breakout
-        translate([44.25,-35,1])
+        translate([50,-35,1])
         rotate([0,0,-35])
         cube([4,6,4]);
         
-        translate([50.25,-43.1,1])
+        translate([68,-49,1])
         rotate([0,0,-35])
-        cube([6,4,4]);
+        cube([4,6,4]);
+        
+        translate([52.25,-41.5,1])
+        rotate([0,0,-35])
+        cube([14,2,4]);
         
       
 }
@@ -62,8 +67,8 @@ module case(){
         #promicro(spacing=true);
 
         color("darkgreen")
-        translate([62.5,-32,3.7])
         rotate([0,180,-35])
+        translate([-74.5,10,-3.7])
         #usb_c_breakout(spacing=true); 
         
         
@@ -80,24 +85,30 @@ module screws(solid=false){
     translate([-49,20.5,2.25])
     screw(solid);
     
-    translate([-15,-43.5,2.25])
+    translate([-15,-37.5,2.25])
     screw(solid);
 
-    translate([18,-55.5,2.25])
+    translate([18,-50.5,2.25])
     screw(solid);    
 
-    translate([47,-66.5,2.25])
+    translate([60,-66,2.25])
     screw(solid);
 
     // at usb-c breakout board position
-    translate([60,-49,2.25])
+    translate([81.2,-35.6,2.25])
     screw(solid);
 
     // at usb-c breakout board position
-    translate([62,-16,2.25])
+    translate([60.5,-19,2.25])
+    screw(solid);
+    
+    translate([66.5,-9,2.25])
     screw(solid);
     
     translate([66.5,28.5,2.25])
+    screw(solid);
+    
+    translate([42.5,28.5,2.25])
     screw(solid);
     
     translate([22.5,28,2.25])
@@ -106,10 +117,10 @@ module screws(solid=false){
     translate([-12,28,2.25])
     screw(solid);
     
-    translate([-3,-30,2.25])
+    translate([8,-30,2.25])
     screw(solid);
     
-    translate([40,-35,2.25])
+    translate([40,-32.5,2.25])
     screw(solid);
     
 }
@@ -121,8 +132,8 @@ module screws(solid=false){
 module top(){
     intersection(){
         case();
-        translate([-80, -80, 0.25])
-        cube([160, 160, 15]);
+        translate([-100, -100, 0.25])
+        cube([200, 200, 15]);
     }
 }
 
@@ -136,25 +147,7 @@ module bottom(){
 
     }
     
-    // some small guides to align bottom and half
-    translate([55.4,-51,-2])
-    rotate([0,0,-35])
-    cube([4,3,3]);
     
-    translate([30,-61.7,-2])
-    rotate([0,0,70])
-    cube([4,5,3]);
-    
-    translate([-30,-39.95,-2])
-    rotate([0,0,70])
-    cube([4,5,3]);
-    
-    translate([30,25.8,-2])
-    cube([5,4,3]);
-    
-    translate([-40,21,-2])
-    rotate([0,0,14.6])
-    cube([5,4,3]);
 }
 
 top();
