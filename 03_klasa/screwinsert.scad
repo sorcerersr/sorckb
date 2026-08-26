@@ -13,7 +13,7 @@ module screw_m2x8(){
 
 module solid_insert(){
 
-    cylinder(d=5, h=8.5, center=true);
+    cylinder(d=5, h=9.5, center=true);
 
 }
 
@@ -22,7 +22,7 @@ module screw(solid=false){
     if(solid){
         solid_insert();
     } else {
-        translate([0,0,-4.25])
+        translate([0,0,-4.75])
         screw_m2x8();
     }
 
