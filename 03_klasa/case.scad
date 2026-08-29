@@ -17,37 +17,37 @@ module casetop(){
             }
             translate([0,0,3])
             linear_extrude(6)
-            #switches();
+            switches();
 
 
-            translate([0,0,-1.5])
-            linear_extrude(height+4-1.2-1.5)
-            switch_plate();
+            translate([0,0,-2])
+            linear_extrude(height+4-1.2-2)
+            #switch_plate();
 
         }
 
         screws(solid=true);
 
         // some guidedance for the controller
-        translate([63.8,-7,1])
+        translate([63.8,-7,1.75])
         cube([5,5,4]);
 
-        translate([43.25,-7,1])
+        translate([43.25,-7,1.75])
         cube([2,5,4]);
 
-        translate([52.25,-11.5,1])
+        translate([52.25,-11.25,1.75])
         cube([6,4,4]);
 
         // and usb breakout
-        translate([50,-35,1])
+        translate([50,-35,1.75])
         rotate([0,0,-35])
         cube([4,6,4]);
 
-        translate([68,-49,1])
+        translate([68,-49,1.75])
         rotate([0,0,-35])
         cube([4,6,4]);
 
-        translate([52.25,-41.5,1])
+        translate([52.25,-41.5,1.75])
         rotate([0,0,-35])
         cube([14,2,4]);
 
@@ -166,4 +166,4 @@ module bottom(){
 }
 
 top();
-bottom();
+//bottom();
