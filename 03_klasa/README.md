@@ -14,3 +14,7 @@ The "Klasa" is a 36-key, columnar-staggered split keyboard.
 ## Wiring
 
 ![Wiring diagramm](./images/wiring.png)
+
+## Firmware
+
+Firmware (QMK) is located here: [https://github.com/sorcerersr/qmk_firmware/tree/klasa/keyboards/klasa](https://github.com/sorcerersr/qmk_firmware/tree/klasa/keyboards/klasa)
