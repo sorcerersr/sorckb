@@ -22,7 +22,7 @@ module casetop(){
 
             translate([0,0,-2])
             linear_extrude(height+4-1.2-2)
-            #switch_plate();
+            switch_plate();
 
         }
 
@@ -64,12 +64,12 @@ module case(){
         color("darkgreen")
         rotate([0,180,0])
         translate([-54.5,13,-3.7])
-        #promicro(spacing=true);
+        promicro(spacing=true);
 
         color("darkgreen")
         rotate([0,180,-35])
         translate([-74.5,10,-3.7])
-        #usb_c_breakout(spacing=true);
+        usb_c_breakout(spacing=true);
 
 
 
