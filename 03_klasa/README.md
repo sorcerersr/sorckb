@@ -13,10 +13,11 @@ After using ortholinear and some columnar-staggered keyboards for a while, I wan
 * make use of self tapping screws (no heated inserts) and screwed together from the bottom
 * compact and portable (to use on the go)
 
-## Non-Design-Goals
+## Design decisions
 
 * no tilting or tenting built into the case - maybe realized in the future through accessories like a stand. Keeping it out of the case makes printing and assembly easier and keeps the keyboard compact
 * not as flat as possible - a flat keyboard would be nice but not at all costs, hence the choice of Gateron KS-33 switches and full MX switch compatibility
+
 
 ## Bill of Materials
 
