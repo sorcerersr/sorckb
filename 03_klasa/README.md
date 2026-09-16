@@ -6,7 +6,7 @@ After using ortholinear and some columnar-staggered keyboards for a while, I wan
 ## Design-Goals
 
 * handwired
-* uses Gateron KS-33 low-profile switches
+* uses Gateron KS-33 low-profile or MX sized switches 
 * 36 keys (with [https://onedeadkey.github.io/selenium/](https://onedeadkey.github.io/selenium/) in mind)
 * wired with usb-c interconnect
 * use a partial column stagger: keys are still column-staggered, just with a smaller offset than common columnar-staggered keyboards
@@ -17,7 +17,7 @@ After using ortholinear and some columnar-staggered keyboards for a while, I wan
 
 * no tilting or tenting built into the case - maybe realized in the future through accessories like a stand. Keeping it out of the case makes printing and assembly easier and keeps the keyboard compact
 * not as flat as possible - a flat keyboard would be nice but not at all costs, hence the choice of Gateron KS-33 switches and full MX switch compatibility
-
+* serial instead of I2C simply because I don't had the resistors for I2C available.
 
 ## Bill of Materials
 
@@ -56,10 +56,24 @@ Left half assembled using Gateron KS-33 Chocolate switches but without keycaps:
 
 ![Left half assembled without keycaps](./images/assembled_left_half_without_keycaps.png)
 
+Fully assembled and connected. Keycaps are [KLP Lamé](https://github.com/braindefender/KLP-Lame-Keycaps) with legends for [selenium](https://onedeadkey.github.io/selenium/). Case is printed using Sunlu PETG Midnight and Keycaps are printed using Sunlu PETG Ceramic White.
+
+![Fully assembled with keycaps](./images/assembled_with_keycaps.png)
+
+## Case
+
+Each half has two parts: a top and a bottom. STL files can be found here [STLs](https://github.com/sorcerersr/sorckb/tree/main/03_klasa/stl) or can be generated yourself with the *export_stls.sh* script (on linux with OpenSCAD nightly installed as flatpak) or just manually from the *.scad*-files.
+
+Print settings: Nothing fancy. All case parts print without supports. I used 4 walls and 0.2 layer height.
+
+Personal preference: printing on a smooth build plate just looks and feels better:
+
+![smooth vs textured build plate](./images/printing_smooth_vs_textured.png)
+left is printed on a textured build plate, right is printed on a smooth build plate.
+
 ## MX Switches
 
-The case was designed with the intention to mainly use Gateron KS-33 switches but regular MX sized switches fit as well although there is not much space left.
-
+The case was designed with the intention to use Gateron KS-33 switches but regular MX sized switches fit as well although there is not much space left.
 
 ![Left case with some MX switches](./images/case_with_mx_switches.png)
 
