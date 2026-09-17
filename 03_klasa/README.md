@@ -69,7 +69,7 @@ Print settings: Nothing fancy. All case parts print without supports. I used 4 w
 Personal preference: printing on a smooth build plate just looks and feels better:
 
 ![smooth vs textured build plate](./images/printing_smooth_vs_textured.png)
-left is printed on a textured build plate, right is printed on a smooth build plate.
+On the left is an early prototype printed on a textured build plate and on the  right is a more recent prototype printed on a smooth build plate.
 
 ## MX Switches
 
