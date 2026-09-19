@@ -1,5 +1,5 @@
-use <../case.scad>;
-use <../switches.scad>;
+use <../../case.scad>;
+use <../../switches.scad>;
 
 
 
@@ -19,8 +19,8 @@ module box_bottom_base(){
     color("blue")
     import("box_bottom.stl", center=true);
     
-    translate([-120,-100,-8.5])
-    cube([240, 155,15.47]);
+    translate([-108,-97,-8.5])
+    cube([216, 140,14.974]);
 
 }
 
@@ -30,8 +30,8 @@ module box_top_base(){
     rotate([0,0,180])
     import("box_top.stl", center=true);
     
-    translate([-120,-100,-8.5])
-    cube([240, 155,15.47]);
+    translate([-108,-97,-5.5255])
+    cube([216, 140,9]);
 
 }
 
@@ -46,8 +46,8 @@ module left(){
         }    
         sphere(d=0.6);
      }
-     translate([-20,60,-8])
-     cube([70,40,32]);
+     translate([-20,60,-6.7])
+     #cube([70,40,34]);
 }
 
 
@@ -62,11 +62,14 @@ module box_bottom(){
     
         box_bottom_base();
 
-        translate([-80,-40,0])
-        #left();
+        translate([-73,-37,-0.8])
+        left();
 
-        translate([80,-40,0])
+        translate([73,-37,-0.8])
         right();
+        
+        translate([-110,6,-10])
+        #cube([6.5,25,20]);
    }     
 }
 
@@ -107,10 +110,10 @@ module box_top(){
         box_top_base();
 
         
-        translate([-80,-40,0])
-        #left();
+        translate([-73,-37,2.6])
+        left();
 
-        translate([80,-40,0])
+        translate([73,-37,2.6])
         right();
         
         

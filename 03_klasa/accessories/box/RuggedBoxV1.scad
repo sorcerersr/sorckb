@@ -52,13 +52,13 @@ polyLvl =
 // *********************************
 
 // The width(X) of the inside box wall in MM
-internalBoxWidthXMm = 240; // .1
+internalBoxWidthXMm = 216; // .1
 // The length(Y) of the inside box wall in MM
-internalboxLengthYMm = 200; // .1
+internalboxLengthYMm = 194; // .1
 // The internal height on the box top
-internalBoxTopHeightZMm = 15; // .1
+internalBoxTopHeightZMm = 8; // .1
 // The internal height on the box bottom
-internalboxBottomHeightZMm = 15; // .1
+internalboxBottomHeightZMm = 14; // .1
 
 // The width on the box wall and floor.  (NOTE: If you want square inside corners, the boxWallWidthMm must be > the  boxChamferRadiusMm.)
 boxWallWidthMm = 3.0; // [1:0.1:10]
