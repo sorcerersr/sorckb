@@ -14,6 +14,27 @@ Original scad file and the generated stl are included in this repo.
 
 ## The Klasa Transportation Box
 
-Fit the Klasa keyboard with attached interconnect cable and space enough to fit the main connection cable.
+Fit the Klasa keyboard with attached interconnect cable and space enough to fit the main connection cable into the box.
 
 Actually this is a quick and dirty prototype that has some potential for improvements but for now gets the job done.
+
+To print use:
+
+* [klasaboxbottom.stl](klasaboxbottom.stl)
+* [klasaboxtop.stl](klasaboxtop.stl)
+* [latches.stl](latches.stl)
+* (optional): [klasaboxtop_label.stl](klasaboxtop_label.stl)
+
+## STL files
+
+Overview of the STL files in this directory:
+
+| File | Comment |
+|---|---|
+| [box_bottom.stl](box_bottom.stl) | the bottom part of the base box |
+| [box_top.stl](box_top.stl) | the top part of the base box |
+| [klasaboxbottom.stl](klasaboxbottom.stl) | the klasa transportation box - bottom part |
+| [klasaboxtop.stl](klasaboxtop.stl) | the klasa transportation box - top part |
+| [klasaboxtop_label.stl](klasaboxtop_label.stl) | optional label to print on the top part|
+| [latches.stl](latches.stl) | the latches for the box|
+| [RuggedBoxV1.stl](RuggedBoxV1.stl) | The base rugged box as a combined stl |
