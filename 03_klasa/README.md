@@ -76,6 +76,9 @@ The case was designed with the intention to use Gateron KS-33 switches but regul
 
 ![Not much space left when using MX switches](./images/case_with_mx_switches_fit.png)
 
+Height difference of a Klasa with KS-33 switches and a Klasa build with Akko Lavender Purple switches:
+![Height difference of a Klasa with KS-33 switches and Akko Lavender Purple](./images/height_difference.png)
+
 ## Accessories
 
 ### Transport Box
