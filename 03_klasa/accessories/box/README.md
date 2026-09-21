@@ -38,3 +38,10 @@ Overview of the STL files in this directory:
 | [klasaboxtop_label.stl](klasaboxtop_label.stl) | optional label to print on the top part|
 | [latches.stl](latches.stl) | the latches for the box|
 | [RuggedBoxV1.stl](RuggedBoxV1.stl) | The base rugged box as a combined stl |
+
+
+## Images
+
+![The closed transport box with the Klasa keyboard in front of it](./images/closed_box_with_klasa_keyboard.png)
+
+![The Klasa keyboard within the transport box](./images/klasa_keyboard_in_box.png)

@@ -79,3 +79,16 @@ The case was designed with the intention to use Gateron KS-33 switches but regul
 
 
 ![Not much space left when using MX switches](./images/case_with_mx_switches_fit.png)
+
+
+## Accessories
+
+### Transport Box
+
+A transportation box for the Klasa keyboard. 
+
+![The closed transport box with the Klasa keyboard in front of it](./accessories/box/images/closed_box_with_klasa_keyboard.png)
+
+![The Klasa keyboard within the transport box](./accessories/box/images/klasa_keyboard_in_box.png)
+
+Project files can be found here: [The Klasa Transportation Box](./accessories/box/README.md)
