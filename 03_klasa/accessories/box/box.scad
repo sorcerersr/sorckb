@@ -68,7 +68,7 @@ module box_bottom(){
         translate([73,-37,-0.8])
         right();
         
-        translate([-110,6,-10])
+        translate([-110,6,-8.75])
         #cube([6.5,25,20]);
    }     
 }
