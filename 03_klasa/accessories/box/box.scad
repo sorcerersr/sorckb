@@ -47,7 +47,7 @@ module left(){
         sphere(d=0.6);
      }
      translate([-20,60,-6.7])
-     #cube([70,40,34]);
+     cube([70,40,34]);
 }
 
 
@@ -69,7 +69,7 @@ module box_bottom(){
         right();
         
         translate([-110,6,-8.75])
-        #cube([6.5,25,20]);
+        cube([6.5,25,20]);
    }     
 }
 
@@ -99,7 +99,7 @@ module nametext(){
     
     translate([63,15,offset-0.1000])
     //color("white")
-    #cube([5,45, 0.2001], center=true);
+    cube([5,45, 0.2001], center=true);
     
     
 }
@@ -121,6 +121,57 @@ module box_top(){
         
    }     
 }
+
+module cableguidearea(){
+    
+    minkowski(){
+        intersection(){
+            box_bottom();
+
+            translate([0,70,0])
+            cube([60,80,40], center=true);
+         }
+         sphere(d=0.25);
+     }
+}
+
+
+module cableguide(){
+
+    difference(){
+        minkowski(){
+            union(){
+                translate([0,70,-7])
+                cube([45,55,1], center=true);
+            
+            
+                translate([0,96.2,-0.7])
+                cube([45,1.5,14], center=true);
+                
+                translate([0,44,-0.7])
+                cube([45,1.5,14], center=true);
+                
+                translate([0,46.96,7.97])
+                rotate([-60,0,0])
+                cube([45,1,8], center=true);
+                
+                translate([0,93.25,7.93])
+                rotate([60,0,0])
+                cube([45,1,8], center=true);
+            
+            }
+            sphere(d=0.5);
+        }
+        #cableguidearea();
+    }
+
+
+}
+
+
+//cableguide();
+//cableguidearea();
+
 
 box_bottom();
 
