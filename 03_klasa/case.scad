@@ -78,7 +78,7 @@ module case(){
 
 
 module screws(solid=false){
-    zoffset=1.75;
+    zoffset=1.85;
 
     translate([-49,-34.5,zoffset])
     screw(solid);
@@ -160,10 +160,10 @@ module bottom(){
             cube([250, 250, 4]);
 
         }
-        
+
     }
-    
+
 }
 
 top();
-//bottom();
+bottom();
