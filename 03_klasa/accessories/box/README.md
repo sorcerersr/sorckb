@@ -38,10 +38,14 @@ Overview of the STL files in this directory:
 | [klasaboxtop_label.stl](klasaboxtop_label.stl) | optional label to print on the top part|
 | [latches.stl](latches.stl) | the latches for the box|
 | [RuggedBoxV1.stl](RuggedBoxV1.stl) | The base rugged box as a combined stl |
-
+| [cableguide.stl](cableguide.stl) | A small addon to provide some guidance to a cable to stay in the box |
 
 ## Images
 
 ![The closed transport box with the Klasa keyboard in front of it](./images/closed_box_with_klasa_keyboard.png)
 
 ![The Klasa keyboard within the transport box](./images/klasa_keyboard_in_box.png)
+
+
+After using the box the first time I realized the connection cable won't stay easily in the bottom of the box and can block the closing. I created a small guidance that I just glued into the box to help holding the cable in position and allow the box to be closing.
+![The box with the glued in cable guide addon](./images/cableguide_addon.png)
