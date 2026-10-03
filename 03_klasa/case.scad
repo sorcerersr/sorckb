@@ -6,7 +6,7 @@ $fn=100;
 
 height=6.75+1.5+1.5-4;
 
-module casetop(){
+module casetop(nodif=false){
 
         difference(){
             minkowski(){
@@ -15,62 +15,66 @@ module casetop(){
                 switch_plate();
                 sphere(d=4);
             }
-            translate([0,0,3])
-            linear_extrude(6)
-            switches();
+            
+            if(!nodif){
+                translate([0,0,3])
+                linear_extrude(6)
+                switches();
 
 
-            translate([0,0,-2])
-            linear_extrude(height+4-1.2-2)
-            switch_plate();
-
+                translate([0,0,-2])
+                linear_extrude(height+4-1.2-2)
+                switch_plate();
+            }
         }
 
-        screws(solid=true);
+        if(!nodif){
+            screws(solid=true);
 
-        // some guidedance for the controller
-        translate([63.8,-7,1.75])
-        cube([5,5,4]);
+            // some guidedance for the controller
+            translate([63.8,-7,1.75])
+            cube([5,5,4]);
 
-        translate([43.25,-7,1.75])
-        cube([2,5,4]);
+            translate([43.25,-7,1.75])
+            cube([2,5,4]);
 
-        translate([52.25,-11.25,1.75])
-        cube([6,4,4]);
+            translate([52.25,-11.25,1.75])
+            cube([6,4,4]);
 
-        // and usb breakout
-        translate([50,-35,1.75])
-        rotate([0,0,-35])
-        cube([4,6,4]);
+            // and usb breakout
+            translate([50,-35,1.75])
+            rotate([0,0,-35])
+            cube([4,6,4]);
 
-        translate([68,-49,1.75])
-        rotate([0,0,-35])
-        cube([4,6,4]);
+            translate([68,-49,1.75])
+            rotate([0,0,-35])
+            cube([4,6,4]);
 
-        translate([52.25,-41.5,1.75])
-        rotate([0,0,-35])
-        cube([14,2,4]);
-
+            translate([52.25,-41.5,1.75])
+            rotate([0,0,-35])
+            cube([14,2,4]);
+        }
 
 }
 
 
-module case(){
+module case(nodif=false){
 
     difference(){
-        casetop();
-        screws(solid=false);
+        casetop(nodif);
+        if(!nodif){
+            screws(solid=false);
 
-        color("darkgreen")
-        rotate([0,180,0])
-        translate([-54.5,13,-3.7])
-        promicro(spacing=true);
+            color("darkgreen")
+            rotate([0,180,0])
+            translate([-54.5,13,-3.7])
+            promicro(spacing=true);
 
-        color("darkgreen")
-        rotate([0,180,-35])
-        translate([-74.5,10,-3.7])
-        usb_c_breakout(spacing=true);
-
+            color("darkgreen")
+            rotate([0,180,-35])
+            translate([-74.5,10,-3.7])
+            usb_c_breakout(spacing=true);
+        }
 
 
     }
@@ -130,9 +134,9 @@ module screws(solid=false){
 
 // top
 
-module top(){
+module top(nodif=false){
     intersection(){
-        case();
+        case(nodif);
         translate([-100, -100, 0.25])
         cube([200, 200, 15]);
     }
@@ -152,10 +156,10 @@ module text3d(string, size, thickness=0.20001){
 
 
 // bottom
-module bottom(){
+module bottom(nodif=false){
     difference(){
         intersection(){
-            case();
+            case(nodif);
             translate([-125, -125, 0.25-4])
             cube([250, 250, 4]);
 
@@ -165,5 +169,12 @@ module bottom(){
 
 }
 
+module case_solid(){
+    top(nodif=true);
+    bottom(nodif=true);
+
+}
+
+//case_solid();
 top();
 bottom();
