@@ -176,5 +176,11 @@ module case_solid(){
 }
 
 //case_solid();
-top();
-bottom();
+
+minkowski(){
+        case_solid();
+        sphere(d=0.4);
+    }
+
+//top();
+//bottom();
