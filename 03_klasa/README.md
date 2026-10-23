@@ -57,6 +57,8 @@ Fully assembled and connected. Keycaps are [KLP Lamé](https://github.com/braind
 
 ![Fully assembled with keycaps](./images/assembled_with_keycaps.png)
 
+A build log with pictures can be found [here](build_log/build.md)
+
 ## Case
 
 Each half has two parts: a top and a bottom. STL files can be found here [STLs](https://github.com/sorcerersr/sorckb/tree/main/03_klasa/stl) or can be generated yourself with the _export_stls.sh_ script (on linux with OpenSCAD nightly installed as flatpak) or just manually from the _.scad_-files.
