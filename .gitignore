@@ -1,0 +1,5 @@
+keycaps/*.stl
+!keycaps/MX_Stem_*.stl
+keycaps/*.3mf
+.planning/
+docs/plans/
