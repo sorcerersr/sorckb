@@ -1,5 +1,6 @@
 keycaps/*.stl
 !keycaps/MX_Stem_*.stl
+keycaps/stl/
 keycaps/*.3mf
 .planning/
 docs/plans/

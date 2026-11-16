@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 #
-# Export one STL per keycap block (toprow/homerow/bottomrow/thumbs) via
-# OpenSCAD. Prefers the OpenSCAD flatpak, falls back to system `openscad`.
-#
-# Outputs keycaps_{toprow,homerow,bottomrow,thumbs}.stl next to this script.
+# Export one STL per keycap via OpenSCAD (36 caps in
+# stl/{toprow,homerow,bottomrow,thumbs}/). Prefers the OpenSCAD flatpak,
+# falls back to system `openscad`.
 #
 # Usage:
 #   ./export_stls.sh              # generate (skips up-to-date STLs)
 #   ./export_stls.sh --force      # ignore mtime check, re-export everything
 #   OPENSAPP_ID=... ./export_stls.sh   # explicit flatpak app id
 #
-# An STL is re-exported if it is older than keycaps.scad.
+# A cap STL is re-exported if it is older than caps.scad or capslibrary.scad.
 #
 # If flatpak cannot see this directory ("cannot open file"), run once:
 #   flatpak override --user --filesystem=host <app-id>
@@ -47,22 +46,49 @@ else
     echo "using system openscad" >&2
 fi
 
-FONT_ROW='"Hack Nerd Font Mono:style=Bold"'
-FONT_THUMB='"DejaVu Sans:style=Bold"'
-# Note: -D string values must include the quotes in the argument itself.
-
+# Cap names per block. Order MUST match cap_list() in caps.scad
+# (toprow 0-9, homerow 10-19, bottomrow 20-29, thumbs 30-35).
+declare -A caps=(
+    [toprow]="q w e r t y u i o p"
+    [homerow]="a s d f g h j k l colon"
+    [bottomrow]="z x c v b n m less greater question"
+    [thumbs]="shift backspace tab enter space sym"
+)
 blocks=(toprow homerow bottomrow thumbs)
+
+# Guard against name-table / caps.scad drift: a mismatch would give a cap
+# the wrong filename.
 for b in "${blocks[@]}"; do
-    if [[ $b == thumbs ]]; then font=$FONT_THUMB; else font=$FONT_ROW; fi
-    dst="keycaps_$b.stl"
-    if [[ $FORCE -eq 0 && -f $dst && $dst -nt keycaps.scad ]]; then
-        echo "skip  $dst (up to date)"
-        continue
+    n=$(wc -w <<< "${caps[$b]}")
+    if [[ $b == thumbs && $n -ne 6 ]] || [[ $b != thumbs && $n -ne 10 ]]; then
+        echo "error: name table for $b has $n entries, expected $([[ $b == thumbs ]] && echo 6 || echo 10)" >&2
+        exit 1
     fi
-    start=$SECONDS
-    run_openscad -Dblock="\"$b\"" -Dfontname="$font" -o "$dst" keycaps.scad
-    echo "ok    $dst  ($((SECONDS-start))s)"
 done
 
+total=0
+idx=0
+for b in "${blocks[@]}"; do
+    mkdir -p "stl/$b"
+    for name in ${caps[$b]}; do
+        dst="stl/$b/$name.stl"
+        total=$((total+1))
+        if [[ $FORCE -eq 0 && -f $dst && $dst -nt caps.scad && $dst -nt capslibrary.scad ]]; then
+            echo "skip  $dst (up to date)"
+        else
+            start=$SECONDS
+            run_openscad -Dcap_index="$idx" -o "$dst" caps.scad
+            echo "ok    $dst  ($((SECONDS-start))s)"
+        fi
+        idx=$((idx+1))
+    done
+done
+
+if [[ $total -ne 36 ]]; then
+    echo "error: expected 36 caps, got $total" >&2
+    exit 1
+fi
+
 echo
-ls -lh keycaps_*.stl
+echo "exported $total caps"
+ls -lhR stl/
