@@ -5,7 +5,7 @@
 //
 // cap_index selects one of the 36 caps in cap_list (row order:
 // toprow 0-9, homerow 10-19, bottomrow 20-29, thumbs 30-35).
-use "capslibrary.scad";
+use<capslibrary.scad>;
 
 // --- toprow (0-9) ---
 module cap_q() { cap_tilted_toprow(one="Q", two="^", three="", four="ESC", shifted=true); }
@@ -51,8 +51,13 @@ module cap_enter() { cap_thumb(one="↵", two="", three="fn", four="", use_alter
 module cap_space() { cap_thumb(one="␣", two="", three="nav", four="fn", shifted=true, use_alternate_font=true); }
 module cap_sym() { cap_thumb(one="sym", two="", three="altgr", four="", use_alternate_font=true); }
 
-// --- single-cap export: children(idx) emits the idx-th cap at the origin ---
+// --- single-cap export: children(idx) selects the idx-th cap passed as children ---
 module cap_list(idx) {
+    children(idx);
+}
+
+cap_index = is_undef(cap_index) ? 0 : cap_index;
+cap_list(cap_index) {
     cap_q();
     cap_w();
     cap_e();
@@ -89,8 +94,4 @@ module cap_list(idx) {
     cap_enter();
     cap_space();
     cap_sym();
-    children(idx);
 }
-
-cap_index = is_undef(cap_index) ? 0 : cap_index;
-cap_list(cap_index);
